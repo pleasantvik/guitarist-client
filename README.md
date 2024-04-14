@@ -1,4 +1,4 @@
-# Guitarist Client
+# Guitarist Client.
 
 # How to contribute
 
