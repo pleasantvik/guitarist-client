@@ -39,11 +39,11 @@ const Header = () => {
               <span onClick={handleLogout} className="cursor-pointer">
                 Logout
               </span>
-              {userLoggedIn ? "" : <NavLink to="/signin">Log in</NavLink>}
+              {userLoggedIn && <NavLink to="/signin">Log in</NavLink>}
             </>
           </div>
           <div className="bottom flex gap-4 justify-end">
-            {userLoggedIn ? "" : <NavLink to="/">Home</NavLink>}
+            {userLoggedIn && <NavLink to="/">Home</NavLink>}
             <NavLink to="shop">Shop</NavLink>
           </div>
         </div>
