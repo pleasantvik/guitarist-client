@@ -4,6 +4,7 @@ import {
   createBrowserRouter,
   createRoutesFromElements,
 } from "react-router-dom";
+
 import { Toaster } from "react-hot-toast";
 // import "../public/resources/styles/styles.css";
 import BaseRoutes from "./constants/baseRoute";
