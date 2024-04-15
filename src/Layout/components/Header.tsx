@@ -1,5 +1,5 @@
 import { BasePaths, DashboardPath } from "@/constants/path";
-import { logOut } from "@/helpers/auth";
+import { logOut, AuthHelper } from "@/helpers/auth";
 import { NavLink } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
 
@@ -9,6 +9,10 @@ const Header = () => {
     logOut();
     navigate("/");
   };
+
+  const auth = new AuthHelper();
+  const userLoggedIn = auth.isAuthenticated();
+
   return (
     <header className="bg-primary-bcg text-white">
       <div className="container mx-auto flex justify-between items-center">
@@ -35,11 +39,11 @@ const Header = () => {
               <span onClick={handleLogout} className="cursor-pointer">
                 Logout
               </span>
-              <NavLink to="/signin">Log in</NavLink>
+              {userLoggedIn ? "" : <NavLink to="/signin">Log in</NavLink>}
             </>
           </div>
           <div className="bottom flex gap-4 justify-end">
-            <NavLink to="/">Home</NavLink>
+            {userLoggedIn ? "" : <NavLink to="/">Home</NavLink>}
             <NavLink to="shop">Shop</NavLink>
           </div>
         </div>
