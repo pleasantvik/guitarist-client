@@ -5,7 +5,7 @@ import { userSchema } from "./validation";
 import CustomButton from "@/shared/CustomButton";
 import FieldInput from "@/shared/FieldInput";
 import FieldLabel from "@/shared/FieldLabel";
-import { Modal } from "@mui/material";
+import { CircularProgress, Modal } from "@mui/material";
 import { useEditUserProfileMutation } from "@/services/auth.service";
 import { showToast } from "@/utils/toastConfig";
 import { currentUser } from "@/features/user/userSlice";
@@ -15,7 +15,7 @@ const UserInfo = () => {
   const dispatch = useAppDispatch();
   const loggedInUser = useAppSelector((state) => state.user);
   const [openModal, setOpenModal] = useState(false);
-  const [editProfile] = useEditUserProfileMutation();
+  const [editProfile, { isLoading }] = useEditUserProfileMutation();
   const userForm = useFormik({
     enableReinitialize: true,
     initialValues: {
@@ -57,9 +57,21 @@ const UserInfo = () => {
 
       <Modal
         open={openModal}
-        className="w-[400px] mx-auto flex justify-center items-center"
+        className=" w-80 mx-auto flex justify-center items-center bg-red-100 absolute p-4 max-w-2xl max-h-96 my-auto rounded-lg"
       >
         <form onSubmit={userForm.handleSubmit}>
+          <div className="grid">
+            <CustomButton
+              onClick={() => {
+                setOpenModal(false);
+              }}
+              variant="contained"
+              className="rounded-full max-w-0 justify-self-end"
+            >
+              &#x2715;
+            </CustomButton>
+          </div>
+
           <div className="flex flex-col gap-2 mb-4">
             <FieldLabel htmlFor="firstname">Firstname</FieldLabel>
             <FieldInput
@@ -77,7 +89,7 @@ const UserInfo = () => {
               </FieldLabel>
             )}
           </div>
-          <div className="flex flex-col gap-2 mb-4">
+          <div className="flex flex-col gap-2 mb-6">
             <FieldLabel htmlFor="lastname">Lastname</FieldLabel>
             <FieldInput
               type="text"
@@ -96,8 +108,12 @@ const UserInfo = () => {
           </div>
 
           <div>
-            <CustomButton variant="contained" className=" mt-2" type="submit">
-              Submit
+            <CustomButton
+              variant="contained"
+              className=" min-w-full mt-2"
+              type="submit"
+            >
+              {isLoading ? <CircularProgress /> : "Submit"}
             </CustomButton>
           </div>
         </form>
