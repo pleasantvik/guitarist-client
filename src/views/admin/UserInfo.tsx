@@ -5,12 +5,11 @@ import { userSchema } from "./validation";
 import CustomButton from "@/shared/CustomButton";
 import FieldInput from "@/shared/FieldInput";
 import FieldLabel from "@/shared/FieldLabel";
-import { Modal } from "@mui/material";
+import { CircularProgress, Modal } from "@mui/material";
 import { useEditUserProfileMutation } from "@/services/auth.service";
 import { showToast } from "@/utils/toastConfig";
 import { currentUser } from "@/features/user/userSlice";
 import { useState } from "react";
-import Loader from "@/shared/Loader";
 
 const UserInfo = () => {
   const dispatch = useAppDispatch();
@@ -114,7 +113,7 @@ const UserInfo = () => {
               className=" min-w-full mt-2"
               type="submit"
             >
-              {isLoading ? <Loader /> : "Submit"}
+              {isLoading ? <CircularProgress /> : "Submit"}
             </CustomButton>
           </div>
         </form>
