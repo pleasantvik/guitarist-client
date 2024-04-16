@@ -8,6 +8,4 @@ function Loader() {
   );
 }
 
-// h - screen;
-
 export default Loader;
