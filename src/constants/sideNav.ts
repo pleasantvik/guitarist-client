@@ -18,7 +18,7 @@ const USER_SIDENAV: INavLInk[] = [
     icon: LuLayoutDashboard,
   },
   {
-    name: "Account",
+    name: "My Account",
     path: DashboardPath.ACCOUNT,
     icon: MdAnalytics,
   },
@@ -28,7 +28,7 @@ const USER_SIDENAV: INavLInk[] = [
     icon: MdAnalytics,
   },
   {
-    name: "Cart",
+    name: "My Cart",
     path: DashboardPath.CART,
     icon: MdAnalytics,
   },

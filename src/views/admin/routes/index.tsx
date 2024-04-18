@@ -5,6 +5,7 @@ import Admin from "..";
 import { DashboardPath } from "@/constants/path";
 import Dashboard from "../Dashboard";
 import UserInfo from "../UserInfo";
+import Product from "../Product";
 
 const AdminRouter = () => {
   const token = localStorage.getItem(wavesToken);
@@ -21,6 +22,7 @@ const AdminRouter = () => {
         <Route path="" element={<Navigate to="/admin/dashboard" replace />} />
         <Route path={DashboardPath.DASHBOARD} element={<Dashboard />} />
         <Route path={DashboardPath.INFO} element={<UserInfo />} />
+        <Route path={DashboardPath.PRODUCT} element={<Product />} />
       </Route>
     </Routes>
   );
