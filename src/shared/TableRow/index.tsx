@@ -3,21 +3,26 @@
 const TableRow = ({ product }: any) => {
   const { model, available, createdAt } = product;
   return (
-    <div className="flex flex-row">
-      <div className="grid grid-cols-3  gap-20 items-center uppercase tracking-normal font-semibold py-6 px-10 border-b-2 border-r">
-        <div>{createdAt}</div>
-        <div>{model}</div>
-        <div>{available}</div>
-      </div>
-      {/* <div>
+    <tbody>
+      <tr>
+        <td>{createdAt}</td>
+        <td>{model}</td>
+        <td>{available}</td>
+        {/* <div className="grid grid-cols-3  gap-20 items-center uppercase tracking-normal font-semibold py-6 px-10 border-b-2 border-r">
+          <div></div>
+          <div></div>
+          <div></div>
+        </div> */}
+        {/* <div>
         <CustomButton className="text-red-900" variant="contained">
-          Remove
+        Remove
         </CustomButton>
         <CustomButton className="text-cyan-800" variant="contained">
-          Edit
+        Edit
         </CustomButton>
       </div> */}
-    </div>
+      </tr>
+    </tbody>
   );
 };
 

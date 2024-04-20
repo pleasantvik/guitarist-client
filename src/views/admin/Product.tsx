@@ -43,13 +43,13 @@ export default function Product() {
 
       <FieldInput
         type="text"
-        placeholder="Enter your search keywords"
+        placeholder="Enter Product Model"
         name="search"
-        className="w-full border-solid border-2 p-2 m-6"
+        className="p-2 m-6 w-full border-solid border-2 rounded-lg px-4 py-2 text-md transition-all duration-500 placeholder:text-stone-700 focus:outline-none  sm:w-64 sm:focus:w-72"
       />
 
       <div>
-        <table className="border-solid border-2 text-base rounded-lg p-2 m-6">
+        <table className="table-auto">
           <TableHeader />
           {products?.map((product, i) => (
             <TableRow key={i} product={product} />
