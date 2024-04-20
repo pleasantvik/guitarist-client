@@ -1,26 +1,28 @@
 // import { IBySold } from "@/interfaces/product.model";
+import { formatCurrency } from "@/utils/formatCurrency";
+
+import CustomButton from "../CustomButton";
 
 const TableRow = ({ product }: any) => {
-  const { model, available, createdAt } = product;
+  const tdCss = "text-base py-3 border-r px-2";
+
+  const { model, available, createdAt, frets, price } = product;
   return (
     <tbody>
-      <tr>
-        <td>{createdAt}</td>
-        <td>{model}</td>
-        <td>{available}</td>
-        {/* <div className="grid grid-cols-3  gap-20 items-center uppercase tracking-normal font-semibold py-6 px-10 border-b-2 border-r">
-          <div></div>
-          <div></div>
-          <div></div>
-        </div> */}
-        {/* <div>
-        <CustomButton className="text-red-900" variant="contained">
-        Remove
-        </CustomButton>
-        <CustomButton className="text-cyan-800" variant="contained">
-        Edit
-        </CustomButton>
-      </div> */}
+      <tr className="border border-solid border-l-0 border-r-0">
+        <td className={tdCss}>{createdAt}</td>
+        <td className={tdCss}>{model}</td>
+        <td className={tdCss}>{available}</td>
+        <td className={tdCss}>{frets}</td>
+        <td className={tdCss}>{formatCurrency(price)}</td>
+
+        <td className="flex flex-row border-b-0 border-t-0">
+          <CustomButton variant="contained">Remove</CustomButton>
+          <CustomButton className="min-w-44" variant="contained">
+            Edit
+          </CustomButton>
+        </td>
+        <td></td>
       </tr>
     </tbody>
   );
