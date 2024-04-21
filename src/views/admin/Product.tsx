@@ -2,12 +2,11 @@ import { queryParamsHelper } from "@/config/query-params";
 import { useBySoldQuery } from "@/services/product.service";
 import { showToast } from "@/utils/toastConfig";
 import { useEffect } from "react";
-
+import { CircularProgress } from "@mui/material";
 import FieldInput from "@/shared/FieldInput";
 import FieldLabel from "@/shared/FieldLabel";
 import TableHeader from "@/shared/TableHeader";
 import TableRow from "@/shared/TableRow";
-import { CircularProgress } from "@mui/material";
 import CustomButton from "@/shared/CustomButton";
 
 export default function Product() {
