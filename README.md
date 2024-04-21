@@ -1,4 +1,4 @@
-# Waves Client
+# Guitarist Client.
 
 # How to contribute
 
