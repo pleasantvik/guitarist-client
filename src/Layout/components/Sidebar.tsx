@@ -24,7 +24,7 @@ const Sidebar = () => {
           );
         })}
 
-        {user?.data?.roles === "admin" && (
+        {user?.data?.roles !== "admin" && (
           <div className="flex flex-col mt-8 gap-2">
             {ADMIN_SIDENAV.map((nav) => (
               <NavLink to={nav.path} key={nav.path}>
